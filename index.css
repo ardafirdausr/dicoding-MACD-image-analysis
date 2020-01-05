@@ -1,0 +1,91 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Segoe UI', "Roboto", sans-serif;
+	color: white;
+}
+
+body {
+	background: #00c853;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.container > div {
+	margin: 40px;
+	flex: 1
+}
+
+.container > div:first-child {
+	border-right: 2px solid white;
+	padding-right: 40px;
+}
+
+.container > div:last-child > * {
+	margin: 8px auto;
+}
+
+.upload-form {
+	margin-top: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.upload-form input {
+	margin-right: 25px;
+}
+
+.upload-form button {
+	align-self: stretch;
+}
+
+.upload-form button,input {
+	background-color: #009624;
+  color: white;
+	border: none;
+	border-radius: 5px;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.upload-form input::placeholder {
+  color: #eaeaea;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+button:hover {
+	background-color: #00600f;
+}
+
+.uploaded-image {
+	max-width: 100%;
+	max-height: 400px;
+}
+
+.error-message {
+	color: #ffcdd2;
+	margin-top: 8px;
+}
