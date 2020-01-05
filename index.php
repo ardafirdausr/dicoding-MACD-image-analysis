@@ -1,6 +1,5 @@
 <?php
 	require_once 'vendor/autoload.php';
-	require_once "./random_string.php";
 
 	use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 	use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
@@ -37,9 +36,10 @@
 
 			$containerName = "webapp-1-images";
 			try {
+				$blobName = "$newFileName.$fileExt";
 				$content = file_get_contents($fileTmp);
-				$blobClient->createBlockBlob($containerName, $newFileName, $content);
-				$imageUrl = $blobClient->getBlobUrl($containerName, $newFileName);
+				$blobClient->createBlockBlob($containerName, $blobName, $content);
+				$imageUrl = $blobClient->getBlobUrl($containerName, $blobName);
 				$encodedUrl = urlencode($imageUrl);
 				header("Location: index.php?image_url=$encodedUrl");
 			} catch(ServiceException $e){
@@ -77,7 +77,7 @@
 			<h2>dengan Azure Computer Vision</h2>
 			<form action="" class="upload-form" method="POST" enctype="multipart/form-data">
 				<input type="file" id="image" name="image" accept="image/jpg,image/jpeg" required />
-				<button type="submit">Upload Gambar</button>
+				<button type="submit">Analisis</button>
 			</form>
 			<?php if(count($errors) > 0): ?>
 				<?php foreach($errors as $error): ?>
